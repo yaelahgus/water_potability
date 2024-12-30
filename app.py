@@ -15,7 +15,9 @@ water_data.head()
 
 # 2. Menelaah Data
 st.write("Informasi Dataset:")
-st.write(water_data.info())
+st.write(water_data.describe())
+st.write("Tipe Data Kolom:")
+st.write(water_data.dtypes)
 st.write("\nJumlah Baris dan Kolom:", water_data.shape)
 st.write("\nLima Baris Pertama:")
 st.write(water_data.head())
