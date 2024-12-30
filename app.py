@@ -55,7 +55,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_
 st.subheader("Evaluasi Sebelum Normalisasi")
 
 # Logistic Regression
-log_model = LogisticRegression(max_iter=2000)
+log_model = LogisticRegression(max_iter=5000)  # Increased iterations to 5000
 log_model.fit(X_train, y_train)
 y_pred_log_before = log_model.predict(X_test)
 accuracy_log_before = accuracy_score(y_test, y_pred_log_before)
@@ -79,19 +79,19 @@ st.write("Akurasi SVM Sebelum Normalisasi:", accuracy_svm_before)
 st.subheader('Confusion Matrix')
 fig, ax = plt.subplots(figsize=(15, 10))
 
-plt.subplot(1, 3, 1)
+plt.subplot(2, 3, 1)
 sns.heatmap(confusion_matrix(y_test, y_pred_log_before), annot=True, fmt='d', cmap='Blues')
 plt.title('Logistic Regression')
 plt.ylabel('Actual')
 plt.xlabel('Predicted')
 
-plt.subplot(1, 3, 2)
+plt.subplot(2, 3, 2)
 sns.heatmap(confusion_matrix(y_test, y_pred_rf_before), annot=True, fmt='d', cmap='Blues')
 plt.title('Random Forest')
 plt.ylabel('Actual')
 plt.xlabel('Predicted')
 
-plt.subplot(1, 3, 3)
+plt.subplot(2, 3, 3)
 sns.heatmap(confusion_matrix(y_test, y_pred_svm_before), annot=True, fmt='d', cmap='Blues')
 plt.title('SVM')
 plt.ylabel('Actual')
