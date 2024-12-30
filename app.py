@@ -39,6 +39,13 @@ fig, ax = plt.subplots(figsize=(10, 8))
 sns.heatmap(water_data.corr(), annot=True, cmap='coolwarm', ax=ax)
 st.pyplot(fig)
 
+# Histogram Plot
+st.subheader('Distribusi Atribut')
+fig, ax = plt.subplots(figsize=(12, 10))
+water_data.hist(figsize=(12, 10), bins=20, ax=ax)
+plt.suptitle('Distribusi Atribut')
+st.pyplot(fig)
+
 # 5. Pemodelan
 X = water_data.drop('Potability', axis=1)
 y = water_data['Potability']
@@ -67,6 +74,30 @@ svm_model.fit(X_train, y_train)
 y_pred_svm_before = svm_model.predict(X_test)
 accuracy_svm_before = accuracy_score(y_test, y_pred_svm_before)
 st.write("Akurasi SVM Sebelum Normalisasi:", accuracy_svm_before)
+
+# Confusion Matrix
+st.subheader('Confusion Matrix')
+fig, ax = plt.subplots(figsize=(15, 5))
+
+plt.subplot(1, 3, 1)
+sns.heatmap(confusion_matrix(y_test, y_pred_log), annot=True, fmt='d', cmap='Blues')
+plt.title('Logistic Regression')
+plt.ylabel('Actual')
+plt.xlabel('Predicted')
+
+plt.subplot(1, 3, 2)
+sns.heatmap(confusion_matrix(y_test, y_pred_rf), annot=True, fmt='d', cmap='Blues')
+plt.title('Random Forest')
+plt.ylabel('Actual')
+plt.xlabel('Predicted')
+
+plt.subplot(1, 3, 3)
+sns.heatmap(confusion_matrix(y_test, y_pred_svm), annot=True, fmt='d', cmap='Blues')
+plt.title('SVM')
+plt.ylabel('Actual')
+plt.xlabel('Predicted')
+
+st.pyplot(fig)
 
 ### 7. Normalisasi Data
 scaler = StandardScaler()
