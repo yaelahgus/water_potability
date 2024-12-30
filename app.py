@@ -74,7 +74,6 @@ svm_model = SVC(kernel='linear', probability=True)
 svm_model.fit(X_train, y_train)
 y_pred_svm_before = svm_model.predict(X_test)
 accuracy_svm_before = accuracy_score(y_test, y_pred_svm_before)
-logging.debug(f"Akurasi SVM Sebelum Normalisasi: {accuracy_svm_before}")
 
 st.write("Akurasi SVM Sebelum Normalisasi:", accuracy_svm_before)
 
