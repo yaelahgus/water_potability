@@ -28,22 +28,23 @@ st.write(water_data.isnull().sum())
 water_data.fillna(water_data.mean(), inplace=True)
 
 # 4. Visualisasi Data
+# Visualisasi Potability (Kelayakan Minum)
 st.subheader('Distribusi Kelayakan Minum (Potability)')
 fig, ax = plt.subplots(figsize=(10, 6))
 sns.countplot(x='Potability', data=water_data, ax=ax)
 st.pyplot(fig)
 
-# Korelasi antar fitur
+# Visualisasi Korelasi Antar Fitur
 st.subheader('Korelasi Antar Fitur')
 fig, ax = plt.subplots(figsize=(10, 8))
 sns.heatmap(water_data.corr(), annot=True, cmap='coolwarm', ax=ax)
 st.pyplot(fig)
 
-# Histogram Plot
+# Visualisasi Histogram untuk Atribut
 st.subheader('Distribusi Atribut')
 fig, ax = plt.subplots(figsize=(12, 10))
-water_data.hist(figsize=(12, 10), bins=20, ax=ax)
-plt.suptitle('Distribusi Atribut')
+water_data.hist(bins=20, ax=ax)
+plt.suptitle('Distribusi Atribut')  # Menambahkan judul untuk semua histogram
 st.pyplot(fig)
 
 # 5. Pemodelan
