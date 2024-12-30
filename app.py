@@ -77,22 +77,22 @@ st.write("Akurasi SVM Sebelum Normalisasi:", accuracy_svm_before)
 
 # Confusion Matrix
 st.subheader('Confusion Matrix')
-fig, ax = plt.subplots(figsize=(15, 5))
+fig, ax = plt.subplots(figsize=(15, 10))
 
 plt.subplot(1, 3, 1)
-sns.heatmap(confusion_matrix(y_test, y_pred_log), annot=True, fmt='d', cmap='Blues')
+sns.heatmap(confusion_matrix(y_test, y_pred_log_before), annot=True, fmt='d', cmap='Blues')
 plt.title('Logistic Regression')
 plt.ylabel('Actual')
 plt.xlabel('Predicted')
 
 plt.subplot(1, 3, 2)
-sns.heatmap(confusion_matrix(y_test, y_pred_rf), annot=True, fmt='d', cmap='Blues')
+sns.heatmap(confusion_matrix(y_test, y_pred_rf_before), annot=True, fmt='d', cmap='Blues')
 plt.title('Random Forest')
 plt.ylabel('Actual')
 plt.xlabel('Predicted')
 
 plt.subplot(1, 3, 3)
-sns.heatmap(confusion_matrix(y_test, y_pred_svm), annot=True, fmt='d', cmap='Blues')
+sns.heatmap(confusion_matrix(y_test, y_pred_svm_before), annot=True, fmt='d', cmap='Blues')
 plt.title('SVM')
 plt.ylabel('Actual')
 plt.xlabel('Predicted')
