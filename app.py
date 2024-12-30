@@ -9,6 +9,9 @@ from sklearn.metrics import classification_report, confusion_matrix, roc_curve, 
 from sklearn.preprocessing import StandardScaler
 import streamlit as st
 
+st.write("AGUS ARIFUDIN")
+st.write("\nA11.2021.13736")
+
 # 1. Pengumpulan Data (Membaca dataset)
 water_data = pd.read_csv('data/water_potability.csv')
 water_data.head()
@@ -16,8 +19,6 @@ water_data.head()
 # 2. Menelaah Data
 st.write("Informasi Dataset:")
 st.write(water_data.describe())
-st.write("Tipe Data Kolom:")
-print(water_data.dtypes)
 st.write("\nJumlah Baris dan Kolom:", water_data.shape)
 st.write("\nLima Baris Pertama:")
 st.write(water_data.head())
