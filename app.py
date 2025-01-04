@@ -96,29 +96,6 @@ st.write("F1 Score SVM Sebelum Normalisasi:", f1_svm_before)
 st.write("Precision SVM Sebelum Normalisasi:", precision_svm_before)
 st.write("Recall SVM Sebelum Normalisasi:", recall_svm_before)
 
-# Confusion Matrix
-st.subheader('Confusion Matrix')
-fig, ax = plt.subplots(figsize=(15, 10))
-
-plt.subplot(2, 3, 1)
-sns.heatmap(confusion_matrix(y_test, y_pred_log_before), annot=True, fmt='d', cmap='Blues')
-plt.title('Logistic Regression')
-plt.ylabel('Actual')
-plt.xlabel('Predicted')
-
-plt.subplot(2, 3, 2)
-sns.heatmap(confusion_matrix(y_test, y_pred_rf_before), annot=True, fmt='d', cmap='Blues')
-plt.title('Random Forest')
-plt.ylabel('Actual')
-plt.xlabel('Predicted')
-
-plt.subplot(2, 3, 3)
-sns.heatmap(confusion_matrix(y_test, y_pred_svm_before), annot=True, fmt='d', cmap='Blues')
-plt.title('SVM')
-plt.ylabel('Actual')
-plt.xlabel('Predicted')
-
-st.pyplot(fig)
 
 ### 7. Normalisasi Data
 scaler = StandardScaler()
